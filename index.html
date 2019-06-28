@@ -46,27 +46,7 @@
             return color;
         }
 
-        function getAjaxRooms(month, year, count) {
-
-            var roomscount = parseInt(Math.random() * 10);
-            var roomsJson = new Array();
-            for (k = 0; k <= roomscount; k++) {
-                var room = new Object();
-
-                room.Name = "Room : " + k;
-                room.Days = new Array();
-                for (i = 0; i < count; i++) {
-                    var day = new Object();
-                    day.DayOfMonth = 1 + i;
-                    day.Color = getRandomColor();
-                    day.PopOverContent = "Day: " + day.DayOfMonth + "<br>Color: " + day.Color
-                    room.Days.push(day);
-                }
-                roomsJson.push(room)
-            }
-            return roomsJson;
-        }
-
+      
         function renderOutput(month, year) {
 
             $('#monthyear').text("Month " + month + " , Year: " + year);
@@ -89,12 +69,13 @@
                     $('#rooms' + k + '').append('<div class="centertext" id="room-' + k + '-' + (i + 1) + '-' + month + '-' + year + '"> <button style="background-color:'+r.Days[i].Color+'" type="button" data-placement="bottom" class="btn btn-md btn-success" data-html="true" data-toggle="popover" title="" data-content="'+r.Days[i].PopOverContent+'" data-original-title="Popover Header">--</button> </div>');
                 }
             }
-
-});
-
+               
             $('[data-toggle="popover"]').popover(
                 { trigger: 'hover' }
             );
+
+});
+
 
 
         }
