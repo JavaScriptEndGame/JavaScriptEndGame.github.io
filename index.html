@@ -64,7 +64,7 @@
             for (k = 0; k < rooms.length; k++) {
                 var r = rooms[k];
                 $('#output').append('<div class="row border bg-warning" id="rooms' + k + '" style="width: ' + width + 'px; min-height: 20px;"><div class="col-xs-5" style="padding: 10px 10px;width:132.5px;">'+ r.Name + '</div></div>');
-                for (i = 0; i < r.Days.length; i++) {
+                for (i = 0; i < days.length; i++) {
 
                     $('#rooms' + k + '').append('<div class="centertext" id="room-' + k + '-' + (i + 1) + '-' + month + '-' + year + '"> <button style="background-color:'+r.Days[i].Color+'" type="button" data-placement="bottom" class="btn btn-md btn-success" data-html="true" data-toggle="popover" title="" data-content="'+r.Days[i].PopOverContent+'" data-original-title="Popover Header">--</button> </div>');
                 }
