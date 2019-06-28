@@ -73,8 +73,9 @@
             var days = getDaysArray(year, month);
 
             var width = (days.length * 40) + 140;
-            var rooms = getAjaxRooms(month, year,days.length);
-debugger
+           // var rooms = getAjaxRooms(month, year,days.length);
+
+           $.getJSON( "/rooms.json", function( rooms ) {
             $('#output').html("");
             $('#output').append('<div class="row border bg-info" id="rooms" style=" width: ' + width + 'px; min-height: 20px;"><div class="col-xs-5" style="width:132.5px;"></div></div>')
             for (i = 0; i < days.length; i++) {
@@ -88,6 +89,8 @@ debugger
                     $('#rooms' + k + '').append('<div class="centertext" id="room-' + k + '-' + (i + 1) + '-' + month + '-' + year + '"> <button style="background-color:'+r.Days[i].Color+'" type="button" data-placement="bottom" class="btn btn-md btn-success" data-html="true" data-toggle="popover" title="" data-content="'+r.Days[i].PopOverContent+'" data-original-title="Popover Header">--</button> </div>');
                 }
             }
+
+});
 
             $('[data-toggle="popover"]').popover(
                 { trigger: 'hover' }
